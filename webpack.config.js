@@ -20,7 +20,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "project",
+      title: "image-slider-project",
       template: "./index.html",
       inject: "body",
       favicon: "./favicon.ico"
@@ -33,6 +33,13 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'image/[name][ext]'
+        }
+      }
     ],
   },
   optimization: {
