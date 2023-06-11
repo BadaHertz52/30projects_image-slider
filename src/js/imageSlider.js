@@ -28,7 +28,6 @@ export default class ImageSlider {
     this.indicatorWrapEl = this.sliderWrapEl.querySelector('#indicator-wrap');
     this.controlWrapEl = this.sliderWrapEl.querySelector('#control-wrap');
   }
-
   initAutoPlay() {
     this.#intervalId = setInterval(this.moveToRight.bind(this), 2000);
   }
@@ -54,6 +53,10 @@ export default class ImageSlider {
       this.onClickIndicator.bind(this),
     );
     this.controlWrapEl.addEventListener('click', this.togglePlay.bind(this));
+    window.addEventListener('resize', () => {
+      this.initSliderWidth();
+      this.intiSliderListWidth();
+    });
   }
   restartAutoPlay() {
     if (this.#autoPlay) {
