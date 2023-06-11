@@ -123,11 +123,18 @@ export default class ImageSlider {
       this.setIndicator();
     }
   }
-  togglePlay(event) {
-    const status = event.target.dataset.status;
+  /**
+   *
+   * @param  status  : auto play를 실행할 거라면 "play", 그렇지 않을 경우에(auto play 멈춤)는 "pause"
+   */
+  handleAutoPlay(status) {
     this.#autoPlay = status === 'play';
     this.controlWrapEl.classList.add(status);
     this.controlWrapEl.classList.remove(this.#autoPlay ? 'pause' : 'play');
     this.#autoPlay ? this.initAutoPlay() : clearInterval(this.#intervalId);
+  }
+  togglePlay(event) {
+    const status = event.target.dataset.status;
+    this.handleAutoPlay(status);
   }
 }
