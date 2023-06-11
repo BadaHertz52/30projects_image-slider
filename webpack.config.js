@@ -23,7 +23,7 @@ module.exports = {
       title: "image-slider-project",
       template: "./index.html",
       inject: "body",
-      favicon: "./favicon.ico"
+      favicon: "./favicon.png"
     }),
     new MiniCssExtractPlugin({ filename: "style.css" }),
   ],
