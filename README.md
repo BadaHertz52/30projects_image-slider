@@ -189,3 +189,6 @@ const width = window.getComputedStyle(this.sliderWrapEl).width;
 console.log(width); // 204.8px
 console.log(width.replace('px', '')); //204.8
 ```
+------
+##### 이미지 자료 출처:https://pixabay.com/ko/
+#### 파비콘 자료 출처: :https://icons8.kr/icon/43665/%EC%82%AC%EC%A7%84%EC%9D%98-%EC%8A%A4%ED%83%9D
