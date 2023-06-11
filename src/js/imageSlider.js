@@ -6,18 +6,22 @@ export default class ImageSlider {
   sliderListEl;
   nextBtnEl;
   previousBtnEl;
+  indicatorWrapEl;
   constructor() {
     this.assignElement();
     this.initSliderNumber();
     this.initSliderWidth();
     this.intiSliderListWidth();
     this.addEvent();
+    this.createIndicator();
+    this.setIndicator();
   }
   assignElement() {
     this.sliderWrapEl = document.getElementById('slider-wrap');
     this.sliderListEl = this.sliderWrapEl.querySelector('#slider');
     this.nextBtnEl = this.sliderWrapEl.querySelector('#next');
     this.previousBtnEl = this.sliderWrapEl.querySelector('#previous');
+    this.indicatorWrapEl = this.sliderWrapEl.querySelector('#indicator-wrap');
   }
   initSliderNumber() {
     this.#sliderNumber = this.sliderListEl.querySelectorAll('li').length;
@@ -32,9 +36,14 @@ export default class ImageSlider {
       this.#sliderNumber * this.#sliderWidth
     }px`;
   }
+
   addEvent() {
     this.nextBtnEl.addEventListener('click', this.moveToRight.bind(this));
     this.previousBtnEl.addEventListener('click', this.moveToLeft.bind(this));
+    this.indicatorWrapEl.addEventListener(
+      'click',
+      this.onClickIndicator.bind(this),
+    );
   }
   moveToRight() {
     /*마지막에서 슬라이든 멈출 경우
@@ -48,6 +57,7 @@ export default class ImageSlider {
     this.sliderListEl.style.left = `-${
       this.#sliderWidth * this.#currentPosition
     }px`;
+    this.setIndicator();
   }
   moveToLeft() {
     /*첫번째 이미지에서 슬라이드 멈출 경우
@@ -61,5 +71,35 @@ export default class ImageSlider {
     this.sliderListEl.style.left = `-${
       this.#sliderWidth * this.#currentPosition
     }px`;
+    this.setIndicator();
+  }
+  createIndicator() {
+    const docFragment = document.createDocumentFragment();
+    for (let i = 0; i < this.#sliderNumber; i++) {
+      const li = document.createElement('li');
+      li.dataset.index = i;
+      docFragment.appendChild(li);
+    }
+    this.indicatorWrapEl.querySelector('ul').appendChild(docFragment);
+  }
+  setIndicator() {
+    //전부 비활성화
+    this.indicatorWrapEl.querySelector('li.active')?.classList.remove('active');
+    // 현재 슬라이드 활성화
+    this.indicatorWrapEl
+      .querySelector(`ul li:nth-child(${this.#currentPosition + 1})`)
+      .classList.add('active');
+  }
+  onClickIndicator(event) {
+    const indexPosition = parseInt(event.target.dataset.index, 10);
+    // indicator가  아닌 곳 click 시, indexPosition = undefined;
+    // parserInt(undefined,10)= NaN;
+    if (Number.isInteger(indexPosition)) {
+      this.#currentPosition = indexPosition;
+      this.sliderListEl.style.left = `-${
+        this.#sliderWidth * this.#currentPosition
+      }px`;
+      this.setIndicator();
+    }
   }
 }
