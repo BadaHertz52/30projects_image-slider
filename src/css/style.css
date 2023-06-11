@@ -70,13 +70,13 @@ img {
 }
 
 .indicator-wrap {
-  height: 15px;
   position: absolute;
   bottom: 16px;
   left: 0;
-  text-align: center;
+  height: 15px;
   width: 90vw;
   margin: 0 auto;
+  text-align: center;
 }
 
 .indicator-wrap ul {
