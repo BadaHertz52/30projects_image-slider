@@ -23,12 +23,12 @@ export default class ImageSlider {
     this.#sliderNumber = this.sliderListEl.querySelectorAll('li').length;
   }
   initSliderWidth() {
-    this.#sliderWidth = this.sliderWrapEl.clientWidth;
+    this.#sliderWidth = '90';
   }
   intiSliderListWidth() {
     this.sliderListEl.style.width = `${
       this.#sliderNumber * this.#sliderWidth
-    }px`;
+    }vw`;
   }
   addEvent() {
     this.nextBtnEl.addEventListener('click', this.moveToRight.bind(this));
@@ -44,7 +44,7 @@ export default class ImageSlider {
     }
     this.sliderListEl.style.left = `-${
       this.#sliderWidth * this.#currentPosition
-    }px`;
+    }vw`;
   }
   moveToLeft() {
     /*첫번째 이미지에서 슬라이드 멈출 경우
@@ -56,6 +56,6 @@ export default class ImageSlider {
     }
     this.sliderListEl.style.left = `-${
       this.#sliderWidth * this.#currentPosition
-    }px`;
+    }vw`;
   }
 }
