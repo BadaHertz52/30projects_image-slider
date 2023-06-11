@@ -6,12 +6,12 @@
   list-style: none;
 }
 img {
-  width: 90vw;
+  width: 60vw;
   height: 40vw;
 }
 /* ! */
 .slider-wrap {
-  width: 90vw;
+  width: 60vw;
   height: 40vw;
   margin: 50px auto;
   position: relative;
@@ -26,14 +26,14 @@ img {
 /* ! */
 .slider-wrap ul.slider li {
   float: left;
-  width: 90vw;
+  width: 60vw;
   height: 40vw;
 }
 /* ! */
 .btn {
   position: absolute;
   width: 50px;
-  height: 60px;
+  height: 50px;
   top: 50%;
   margin-top: -25px;
   line-height: 57px;
@@ -74,7 +74,7 @@ img {
   bottom: 16px;
   left: 0;
   height: 15px;
-  width: 90vw;
+  width: 60vw;
   margin: 0 auto;
   text-align: center;
 }
