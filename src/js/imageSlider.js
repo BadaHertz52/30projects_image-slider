@@ -38,9 +38,10 @@ export default class ImageSlider {
     /*마지막에서 슬라이든 멈출 경우
     if (this.#currentPosition === this.#sliderNumber - 1) return;*/
     // 마지막 이미지 -> 첫번째 이미지로 이동
-    this.#currentPosition++;
-    if (this.#currentPosition === this.#sliderNumber) {
+    if (this.#currentPosition === this.#sliderNumber - 1) {
       this.#currentPosition = 0;
+    } else {
+      this.#currentPosition++;
     }
     this.sliderListEl.style.left = `-${
       this.#sliderWidth * this.#currentPosition
@@ -50,9 +51,10 @@ export default class ImageSlider {
     /*첫번째 이미지에서 슬라이드 멈출 경우
     if (this.#currentPosition === 0) return;*/
     // 첫번째 이미지-> 마지막 이미지
-    this.#currentPosition--;
-    if (this.#currentPosition === -1) {
+    if (this.#currentPosition === 0) {
       this.#currentPosition = this.#sliderNumber - 1;
+    } else {
+      this.#currentPosition--;
     }
     this.sliderListEl.style.left = `-${
       this.#sliderWidth * this.#currentPosition
