@@ -18,7 +18,7 @@
 
 ## <div id="introduce">1. 프로젝트 소개</div>
 
-- 📷 프로젝트 시뮬레이션 <br/> <img src="./simulation.gif" alt="project simulation gif" width="70%"  height="auto" style="max-width:450px">
+- 📷 프로젝트 작동 화면 <br/> <img src="./simulation.gif" alt="project simulation gif" width="70%"  height="auto" style="max-width:450px">
 
 해당 프로젝트는 "30개 프로젝트로 배우는 프론트엔드 with React" 수업 중에 하나로 웹팩과 바닐라 자바스크립트를 활용해 이미지 슬라이더를 구현하는 프로젝트이며 수업 내용에서 **asset/inline 사용으로 인한 오류를 수정하고 브라우저의 크기에 따라 이미지 슬라이드의 크기가 자동을 조정될 수 있는 기능을 추가**했다.
 
